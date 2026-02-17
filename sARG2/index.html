@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>PonyvilleNews</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("ponyville_bg.png") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* ================= LOADER ================= */
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.progress-container {
+    width: 300px;
+    height: 20px;
+    border: 1px solid white;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: white;
+}
+
+/* ================= HEADER ================= */
+
+#header {
+    text-align: center;
+    padding-top: 40px;
+}
+
+#logo {
+    width: 750px;
+    margin-bottom: 300px;
+}
+
+/* ================= TERMINAL ================= */
+
+#terminal {
+    text-align: center;
+    padding: 40px 0;
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    width: 300px;
+}
+
+/* ================= NEWS ================= */
+
+.news-container {
+    width: 80%;
+    margin: 100px auto;
+}
+
+.news {
+    display: flex;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.news img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.news-text {
+    flex: 1;
+    margin: 20px;
+}
+
+/* ================= BOX ================= */
+
+.box {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ================= PAGES ================= */
+
+.page {
+    display: none;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.page img {
+    width: 400px;
+    border-radius: 10px;
+    display: block;
+    margin: 20px auto;
+}
+
+
+.signature {
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* ================= BUTTON ================= */
+
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    Загрузка PonyvilleNews...
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+</div>
+
+<!-- MAIN PAGE -->
+<div id="main" style="display:none;">
+
+    <div id="header">
+        <img src="logo.png" id="logo" alt="PonyvilleNews Logo">
+    </div>
+
+    <div id="terminal" class="box">
+        <h2>Введите ключевое слово:</h2>
+        <input type="text" id="commandInput" placeholder="Введите запрос...">
+    </div>
+
+    <div class="news-container">
+
+        <div class="news box">
+            <div class="news-text">
+                Завтра в Понивиле обещают выпадение снега, а также температуру ниже 15°C.
+                Многие готовятся встречать первый день зимы.
+                Пони и жители Эквестрии готовятся к <s>жутким холодам</s> зимним праздникам!
+                Вся Эквестрийская элита и принцессы Луна и Селестия,
+                обещают присутствовать на мероприятии.
+            </div>
+            <img src="news1.jpg">
+        </div>
+
+        <div class="news box">
+            <img src="news2.png">
+            <div class="news-text">
+                Сегодня, все жители Понивиля проснулись с жуткой головной болью,
+                принцесса Доброты - Твайлайт Спаркл сказала,
+                что из-за сильного излучения магии,
+                все были подвержены ее воздействию.
+                Принцесса Луна заявила,
+                что сны жителей не искажались во время ее дежурства.
+            </div>
+        </div>
+
+        <div class="news box">
+            <div class="news-text">
+                На окраине Понивиля замечен странный дом,
+                которого ранее не существовало.
+                При попытке приблизиться к нему,
+                пони разворачивались обратно
+                и не понимали почему.
+                Также в городе замечали странное существо,
+                напоминающее пони.
+            </div>
+            <img src="news3.png">
+        </div>
+
+    </div>
+</div>
+
+<!-- Флаффи -->
+<div id="fluffyPage" class="page box">
+    <p>Пони, что видели в городе розовая и очень пушистая,
+        настолько, что даже копыт не видать.
+        Мы пытались с ней заговорить, но на все наши попытки были... безуспешны?
+        Она нам отвечала обычным бзыканьем и убегала.
+        Наши корреспонденты пытались ее догнать, но она внезапно исчезала.
+        Также, буквально вчера, мы видели саму Королеву Кризалис.
+        Теперь, город охраняется основной шестеркой и они ищут ее.
+        Как только будут известны дополнительные новости,
+        они будут опубликованы на сайте.</p>
+    <img src="fluffy.png">
+    <button onclick="goHome()">Вернуться на главную</button>
+</div>
+
+<!-- Кризалис -->
+<div id="chrysalisPage" class="page box">
+    <p>Королева Кризалис! Она... Ее обнаружили жители города,
+        проследив за ней, мы заметили, как она, скрываясь,
+        приходила к тому странному дому и закрывалась в нем.
+        Что происходит внутри - одной лишь принцессе Селестии знать,
+        и то не факт.
+        Мои товарищи, моя команда стали странно себя вести,
+        делать вид, что ничего не произошло и не могут вспомнить о Кризалис...
+        Твайлайт тоже должна быть в курсе,
+        но почему-то никто из "Шестерки дружбы" не принимает действий.
+        Есть вероятность, ее подменили...
+        И вообще всех подменили!!!
+        Бред? А ведь такое уже было!
+        Пони паникуют, но виду не подают...
+        Я писал письма в Кантерлот, но ни одно не принесло результата.
+        У меня появляется жуткое предчувствие, что я остался один...
+        Недавно, меня звала Флаттершай в гости,
+        быть может, у нее я успокоюсь...</p>
+    <img src="chrysalis.png">
+    <div class="signature">-Даркенед Скай</div>
+    <button onclick="goHome()">Вернуться на главную</button>
+</div>
+
+<!-- Даркенед -->
+<div id="darkenedPage" class="page box">
+    <p>Леди и Джентельмены, меня зовут Даркенед Скай,
+        я рад, что вы читаете вечерний выпуск новостей.
+        Сегодня, госпожа Искорка, заявила на Кантерлотскую публику.
+        В своей речи, она высказывала свое отношение к народам Эквестрии,
+        она счастлива быть нашей принцессой.
+        Предлагаю нам всем выразить свое признание,
+        и отправить письма с пожеланиями на ее почтовый адрес -
+        prctwilightsparkle@gmail.com.
+        Каждый из нас может поддержать принцессу.
+        Наши принцессы - наша гордость.
+        Мы должны следовать приказам Госпожи Твайлайт,
+        она приведет Эквестрию к процветанию!</p>
+    <button onclick="goHome()">Вернуться на главную</button>
+</div>
+
+<!-- ОШИБКА -->
+<div id="errorPage" class="page box">
+    <p>
+        Упс, боюсь, что Эквестрийская газета еще не писала об этом.
+        Думаю, если поддерживать новостную газету,
+        и просить их о чем-либо писать,
+        то, возможно, они даже напишут об этом.
+    </p>
+    <button onclick="goHome()">Вернуться на главную</button>
+</div>
+
+<script>
+
+/* ===== ПРОГРЕСС БАР ===== */
+
+let progress = 0;
+let bar = document.getElementById("progressBar");
+
+let interval = setInterval(() => {
+    progress += 4;
+    bar.style.width = progress + "%";
+
+    if (progress >= 100) {
+        clearInterval(interval);
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("main").style.display = "block";
+    }
+}, 80);
+
+/* ===== НАВИГАЦИЯ ===== */
+
+function hideAllPages() {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("fluffyPage").style.display = "none";
+    document.getElementById("chrysalisPage").style.display = "none";
+    document.getElementById("darkenedPage").style.display = "none";
+    document.getElementById("errorPage").style.display = "none";
+}
+
+function goHome() {
+    hideAllPages();
+    document.getElementById("main").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+/* ===== КОМАНДЫ ===== */
+
+document.getElementById("commandInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        let value = this.value.toLowerCase().trim();
+        hideAllPages();
+
+        if (value === "флаффи" || value === "флаффи паф") {
+            document.getElementById("fluffyPage").style.display = "block";
+        }
+        else if (value === "кризалис") {
+            document.getElementById("chrysalisPage").style.display = "block";
+        }
+        else if (value === "даркенед скай") {
+            document.getElementById("darkenedPage").style.display = "block";
+        }
+        else {
+            document.getElementById("errorPage").style.display = "block";
+        }
+
+        this.value = "";
+    }
+});
+
+</script>
+
+</body>
+</html>
